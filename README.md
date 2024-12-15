@@ -1,7 +1,7 @@
 # Android Logcat Parser
 
-[![Maven Central](https://img.shields.io/maven-central/v/de.brudaswen.android.logcat/android-logcat?style=flat-square)](https://search.maven.org/artifact/de.brudaswen.android.logcat/android-logcat)
-[![Snapshot](https://img.shields.io/nexus/s/de.brudaswen.android.logcat/android-logcat?label=snapshot&server=https%3A%2F%2Foss.sonatype.org&style=flat-square)](https://oss.sonatype.org/#nexus-search;gav~de.brudaswen.android.logcat~android-logcat~~~)
+[![Maven Central](https://img.shields.io/maven-central/v/de.brudaswen.android.logcat/android-logcat?style=flat-square)](https://search.maven.org/artifact/de.brudaswen.android.logcat/logcat-core)
+[![Snapshot](https://img.shields.io/nexus/s/de.brudaswen.android.logcat/android-logcat?label=snapshot&server=https%3A%2F%2Foss.sonatype.org&style=flat-square)](https://oss.sonatype.org/#nexus-search;gav~de.brudaswen.android.logcat~logcat-core~~~)
 [![CI Status](https://img.shields.io/github/actions/workflow/status/brudaswen/android-logcat/ci-main.yml?style=flat-square)](https://github.com/brudaswen/android-logcat/actions/workflows/ci-main.yml)
 [![Codecov](https://img.shields.io/codecov/c/github/brudaswen/android-logcat?style=flat-square)](https://codecov.io/gh/brudaswen/android-logcat)
 [![License](https://img.shields.io/github/license/brudaswen/android-logcat?style=flat-square)](https://www.apache.org/licenses/LICENSE-2.0)
