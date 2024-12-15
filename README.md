@@ -1,2 +1,1 @@
-# android-logcat
-Android Logcat Parser
+# Android Logcat Parser
