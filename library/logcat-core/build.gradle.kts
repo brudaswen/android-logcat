@@ -10,7 +10,7 @@ plugins {
 }
 
 kotlin {
-    jvmToolchain(jdkVersion = 8)
+    jvmToolchain(jdkVersion = 9)
 
     compilerOptions {
         freeCompilerArgs.add("-Xexplicit-api=strict")
