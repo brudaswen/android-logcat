@@ -6,11 +6,7 @@
 [![Codecov](https://img.shields.io/codecov/c/github/brudaswen/android-logcat?style=flat-square)](https://codecov.io/gh/brudaswen/android-logcat)
 [![License](https://img.shields.io/github/license/brudaswen/android-logcat?style=flat-square)](https://www.apache.org/licenses/LICENSE-2.0)
 
-Library to easily use *Kotlin Serialization* to serialize/parse CSV.
-
-All types of record classes are supported (primitives, classes, enums, nested classes, ...).
-However, CSV serialization works best if the column number if fixed. So, collections (lists, sets, maps) and
-open classes should be avoided.
+Library to easily parse *Android Logcat*, store it in a database and export to `txt` or `csv`.
 
 ## Gradle Dependencies
 
