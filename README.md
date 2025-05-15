@@ -12,16 +12,16 @@ Library to easily parse *Android Logcat*, store it in a database and export to `
 
 ```kotlin
 // Plain Logcat Core (parser)
-implementation("de.brudaswen.android.logcat:logcat-core:1.0.0")
+implementation("de.brudaswen.android.logcat:logcat-core:1.0.1")
 
 // Android Logcat Database (Room database and import service)
-implementation("de.brudaswen.android.logcat:logcat-database:1.0.0")
+implementation("de.brudaswen.android.logcat:logcat-database:1.0.1")
 
 // Android Logcat Export (export database to txt file)
-implementation("de.brudaswen.android.logcat:logcat-export:1.0.0")
+implementation("de.brudaswen.android.logcat:logcat-export:1.0.1")
 
 // Android Logcat CSV Export (csv export extension)
-implementation("de.brudaswen.android.logcat:logcat-export:1.0.0")
+implementation("de.brudaswen.android.logcat:logcat-export:1.0.1")
 ```
 
 ## Usage
