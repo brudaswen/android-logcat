@@ -10,7 +10,7 @@ plugins {
 }
 
 android {
-    namespace = "de.brudaswen.android.logcat.export"
+    namespace = "de.brudaswen.android.logcat.export.csv"
     compileSdk = 35
 }
 
