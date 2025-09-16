@@ -11,6 +11,7 @@ import kotlinx.io.readIntLe
 import kotlinx.io.readString
 import kotlinx.io.readUShortLe
 import kotlinx.io.write
+import java.io.Closeable
 import java.io.InputStream
 
 /**
@@ -20,7 +21,7 @@ import java.io.InputStream
  */
 public class LogcatBinaryParser(
     private val input: InputStream,
-) {
+) : Closeable by input {
 
     private val buffer = Buffer()
 

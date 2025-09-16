@@ -28,6 +28,23 @@ implementation("de.brudaswen.android.logcat:logcat-export:1.0.1")
 
 ### Core (Parser)
 
+```kotlin
+internal fun main(args: Array<String>) = runBlocking {
+    val process = ProcessBuilder("adb", "logcat", "-B")
+        .redirectErrorStream(true)
+        .start()
+
+    LogcatBinaryParser(
+        input = BufferedInputStream(process.inputStream)
+    ).use { parser ->
+        while (true) {
+            val item = parser.parseItem()
+            println(item)
+        }
+    }
+}
+```
+
 ### Database and Import
 
 ### Export
