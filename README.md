@@ -31,7 +31,7 @@ implementation("de.brudaswen.android.logcat:logcat-export:1.0.1")
 The `LogcatBinaryParser` can be used on an arbitrary input stream to parse Logcat items.
 
 ```kotlin
-internal fun main(args: Array<String>) = runBlocking {
+fun main() = runBlocking {
     val process = ProcessBuilder("adb", "logcat", "-B").start()
 
     LogcatBinaryParser(
@@ -47,9 +47,46 @@ internal fun main(args: Array<String>) = runBlocking {
 
 ### Database and Import
 
+If you want to provide a way to capture and store all Logcat messages of your app and represent
+them inside your app, you can use the `LogcatDatabase` and the `LogcatImportService`.
+
+Start the import service with:
+
+```kotlin
+val logcat = Logcat(application)
+launch {
+    logcat.service.start()
+}
+```
+
+Search items via the `LogcatSearchDao`:
+
+```kotlin
+val pagingSource = logcat.searchDao.getAllPaged()
+```
+
 ### Export
 
+The logcat items can get exported to a simple `txt` file.
+
+```kotlin
+launch {
+    LogcatExporter(logcat.exportDao).export(output)
+}
+```
+
 #### CSV Export
+
+The logcat items can also get exported as a CSV file.
+
+```kotlin
+launch {
+    LogcatExporter(
+        dao = logcat.exportDao,
+        serializer = LogcatCsvSerializer,
+    ).export(output)
+}
+```
 
 ## License
 
