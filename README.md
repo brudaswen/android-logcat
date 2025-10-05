@@ -28,11 +28,11 @@ implementation("de.brudaswen.android.logcat:logcat-export:1.0.1")
 
 ### Core (Parser)
 
+The `LogcatBinaryParser` can be used on an arbitrary input stream to parse Logcat items.
+
 ```kotlin
 internal fun main(args: Array<String>) = runBlocking {
-    val process = ProcessBuilder("adb", "logcat", "-B")
-        .redirectErrorStream(true)
-        .start()
+    val process = ProcessBuilder("adb", "logcat", "-B").start()
 
     LogcatBinaryParser(
         input = BufferedInputStream(process.inputStream)
