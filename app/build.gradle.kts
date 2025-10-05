@@ -1,6 +1,7 @@
 plugins {
     kotlin("android")
     alias(libs.plugins.android.application)
+    alias(libs.plugins.compose.compiler)
     alias(libs.plugins.ktlint)
 }
 
@@ -22,22 +23,36 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro",
+            )
         }
     }
 
     kotlin {
         jvmToolchain(jdkVersion = 9)
     }
+
+    buildFeatures {
+        compose = true
+    }
 }
 
 dependencies {
+    implementation(platform(libs.androidx.compose.bom))
+
     implementation(project(":library:logcat-export"))
     implementation(project(":library:logcat-export-csv"))
 
-    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.appcompat)
-    implementation(libs.material)
+    implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.compose.ui.tooling)
+    implementation(libs.androidx.compose.ui.tooling.preview)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.paging.compose)
+    implementation(libs.androidx.viewmodel.compose)
 
     testImplementation(libs.junit)
 
