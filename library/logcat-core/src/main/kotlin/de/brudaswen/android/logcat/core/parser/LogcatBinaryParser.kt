@@ -4,7 +4,6 @@ import de.brudaswen.android.logcat.core.data.LogcatItem
 import de.brudaswen.android.logcat.core.data.LogcatLevel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.invoke
-import kotlinx.datetime.Instant
 import kotlinx.io.Buffer
 import kotlinx.io.readByteArray
 import kotlinx.io.readIntLe
@@ -13,6 +12,7 @@ import kotlinx.io.readUShortLe
 import kotlinx.io.write
 import java.io.Closeable
 import java.io.InputStream
+import kotlin.time.Instant
 
 /**
  * Logcat parser that parses binary output of `adb logcat --binary`.

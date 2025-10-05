@@ -1,9 +1,9 @@
 package de.brudaswen.android.logcat.core.data
 
 import de.brudaswen.android.logcat.core.uuid.v5
-import kotlinx.datetime.Instant
 import kotlinx.datetime.format
 import kotlinx.datetime.format.DateTimeComponents.Formats.ISO_DATE_TIME_OFFSET
+import kotlin.time.Instant
 import kotlin.uuid.Uuid
 
 private val LOGCAT_NAMESPACE = Uuid.parse("1a8aec4b-880b-4d8a-be1b-4fae5a869f5a")

@@ -3,7 +3,6 @@ package de.brudaswen.android.logcat.export.csv
 import de.brudaswen.android.logcat.core.data.LogcatItem
 import de.brudaswen.android.logcat.core.data.LogcatLevel
 import de.brudaswen.android.logcat.export.LogcatSerializer
-import kotlinx.datetime.Instant
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.csv.Csv
@@ -11,6 +10,7 @@ import kotlinx.serialization.csv.CsvRecordWriter
 import kotlinx.serialization.csv.recordWriter
 import java.io.OutputStream
 import java.io.Writer
+import kotlin.time.Instant
 
 /**
  * [LogcatSerializer] in CSV format.

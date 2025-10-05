@@ -1,9 +1,6 @@
-import java.time.Duration
-
 plugins {
     kotlin("jvm")
-    alias(libs.plugins.dokka)
-    alias(libs.plugins.nexus.publish)
+    alias(libs.plugins.dokka.javadoc)
     `maven-publish`
     signing
     jacoco
@@ -15,6 +12,7 @@ kotlin {
     compilerOptions {
         freeCompilerArgs.add("-Xexplicit-api=strict")
 
+        optIn.add("kotlin.time.ExperimentalTime")
         optIn.add("kotlin.uuid.ExperimentalUuidApi")
     }
 }
@@ -39,34 +37,11 @@ tasks.withType<GenerateModuleMetadata> {
     enabled = !isSnapshot()
 }
 
-val dokkaJavadocJar by tasks.creating(Jar::class) {
+val dokkaJavadocJar by tasks.registering(Jar::class) {
     group = JavaBasePlugin.DOCUMENTATION_GROUP
     description = "Assembles Kotlin docs with Dokka"
     archiveClassifier.set("javadoc")
-    from(tasks.dokkaJavadoc)
-}
-
-val publishRelease = tasks.create("publishRelease") {
-    description = "Publish to Maven Central (iff this is a release version)."
-}
-
-val publishSnapshot = tasks.create("publishSnapshot") {
-    description = "Publish to Maven Central (iff this is a snapshot version)."
-}
-
-tasks.whenTaskAdded {
-    if (name == "publishToSonatype") {
-        val publishToSonatype = this
-        if (!isSnapshot()) {
-            publishRelease.dependsOn(publishToSonatype)
-
-            val closeAndReleaseRepository = rootProject.tasks.getByName("closeAndReleaseRepository")
-            closeAndReleaseRepository.mustRunAfter(publishToSonatype)
-            publishRelease.dependsOn(closeAndReleaseRepository)
-        } else {
-            publishSnapshot.dependsOn(publishToSonatype)
-        }
-    }
+    from(tasks.dokkaGeneratePublicationJavadoc)
 }
 
 publishing {
@@ -106,18 +81,6 @@ publishing {
             from(components["java"])
             artifact(dokkaJavadocJar)
         }
-    }
-}
-
-nexusPublishing {
-    repositories {
-        sonatype()
-    }
-
-    clientTimeout.set(Duration.ofMinutes(30))
-    val useSnapshot: String? by project
-    if (useSnapshot != null) {
-        useStaging.set(useSnapshot?.toBoolean()?.not())
     }
 }
 
