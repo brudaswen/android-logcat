@@ -53,7 +53,7 @@ them inside your app, you can use the `LogcatDatabase` and the `LogcatImportServ
 Start the import service with:
 
 ```kotlin
-val logcat = Logcat(application)
+val logcat = Logcat(context)
 launch {
     logcat.service.start()
 }
@@ -62,6 +62,7 @@ launch {
 Search items via the `LogcatSearchDao`:
 
 ```kotlin
+val logcat = Logcat(context)
 val pagingSource = logcat.searchDao.getAllPaged()
 ```
 
@@ -70,6 +71,7 @@ val pagingSource = logcat.searchDao.getAllPaged()
 The logcat items can get exported to a simple `txt` file.
 
 ```kotlin
+val logcat = Logcat(context)
 launch {
     LogcatExporter(logcat.exportDao).export(output)
 }
@@ -80,6 +82,7 @@ launch {
 The logcat items can also get exported as a CSV file.
 
 ```kotlin
+val logcat = Logcat(context)
 launch {
     LogcatExporter(
         dao = logcat.exportDao,
