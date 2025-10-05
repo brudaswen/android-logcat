@@ -1,7 +1,7 @@
 package de.brudaswen.android.logcat.database
 
 import androidx.room.TypeConverter
-import kotlinx.datetime.Instant
+import kotlin.time.Instant
 
 /**
  * Database conversion helpers.

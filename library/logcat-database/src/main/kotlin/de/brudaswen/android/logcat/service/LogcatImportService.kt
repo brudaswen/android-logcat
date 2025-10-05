@@ -141,7 +141,7 @@ private val Formats.Logcat
         char('-')
         monthNumber()
         char('-')
-        dayOfMonth()
+        day()
         char(' ')
         hour()
         char(':')

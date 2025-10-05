@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 import de.brudaswen.android.logcat.core.data.LogcatItem
 import de.brudaswen.android.logcat.core.data.LogcatLevel
 import de.brudaswen.android.logcat.core.data.uuid
-import kotlinx.datetime.Instant
+import kotlin.time.Instant
 
 /**
  * Representation of one Logcat line.
