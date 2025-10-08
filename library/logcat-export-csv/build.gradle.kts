@@ -21,9 +21,9 @@ android {
 kotlin {
     jvmToolchain(jdkVersion = 9)
 
-    compilerOptions {
-        freeCompilerArgs.add("-Xexplicit-api=strict")
+    explicitApi()
 
+    compilerOptions {
         optIn.add("kotlin.time.ExperimentalTime")
         optIn.add("kotlin.uuid.ExperimentalUuidApi")
         optIn.add("kotlinx.serialization.ExperimentalSerializationApi")
