@@ -48,31 +48,31 @@ publishing {
             artifactId = "logcat-export"
 
             pom {
-                name.set("logcat-export")
-                description.set("Library to export Logcat events.")
-                url.set("https://github.com/brudaswen/android-logcat/")
+                name = "logcat-export"
+                description = "Library to export Logcat events."
+                url = "https://github.com/brudaswen/android-logcat/"
 
                 licenses {
                     license {
-                        name.set("Apache License, Version 2.0")
-                        url.set("https://www.apache.org/licenses/LICENSE-2.0.txt")
+                        name = "Apache License, Version 2.0"
+                        url = "https://www.apache.org/licenses/LICENSE-2.0.txt"
                     }
                 }
                 developers {
                     developer {
-                        id.set("brudaswen")
-                        name.set("Sven Obser")
-                        email.set("dev@brudaswen.de")
+                        id = "brudaswen"
+                        name = "Sven Obser"
+                        email = "dev@brudaswen.de"
                     }
                 }
                 scm {
-                    connection.set("scm:git:git://github.com/brudaswen/android-logcat.git")
-                    developerConnection.set("scm:git:ssh://git@github.com:brudaswen/android-logcat.git")
-                    url.set("https://github.com/brudaswen/android-logcat/")
+                    connection = "scm:git:git://github.com/brudaswen/android-logcat.git"
+                    developerConnection = "scm:git:ssh://git@github.com:brudaswen/android-logcat.git"
+                    url = "https://github.com/brudaswen/android-logcat/"
                 }
                 issueManagement {
-                    system.set("GitHub Issues")
-                    url.set("https://github.com/brudaswen/android-logcat/issues/")
+                    system = "GitHub Issues"
+                    url = "https://github.com/brudaswen/android-logcat/issues/"
                 }
             }
 
