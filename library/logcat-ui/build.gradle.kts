@@ -1,18 +1,18 @@
 plugins {
     kotlin("android")
     alias(libs.plugins.android.library)
-    alias(libs.plugins.androidx.room)
-    alias(libs.plugins.devtools.ksp)
+    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.ktlint)
     `maven-publish`
     signing
 }
 
 android {
-    namespace = "de.brudaswen.android.logcat.database"
+    namespace = "de.brudaswen.android.logcat.ui"
     compileSdk = 36
 
-    room {
-        schemaDirectory("$projectDir/schemas")
+    defaultConfig {
+        minSdk = 11
     }
 
     publishing {
@@ -21,6 +21,10 @@ android {
             withJavadocJar()
         }
     }
+
+    buildFeatures {
+        compose = true
+    }
 }
 
 kotlin {
@@ -28,26 +32,26 @@ kotlin {
 
     explicitApi()
 
-    @OptIn(org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation::class)
-    abiValidation {
-        enabled = true
-    }
-
     compilerOptions {
+        optIn.add("androidx.compose.material3.ExperimentalMaterial3Api")
         optIn.add("kotlin.time.ExperimentalTime")
         optIn.add("kotlin.uuid.ExperimentalUuidApi")
     }
 }
 
 dependencies {
-    ksp(libs.androidx.room.compiler)
+    implementation(platform(libs.androidx.compose.bom))
 
-    api(project(":library:logcat-core"))
+    api(project(":library:logcat-export-csv"))
 
-    implementation(libs.androidx.room.runtime)
-    implementation(libs.androidx.room.ktx)
-    api(libs.androidx.room.paging)
-    implementation(libs.androidx.paging.runtime)
+    implementation(libs.androidx.compose.material.icons.core)
+    implementation(libs.androidx.compose.material.icons.extended)
+    implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.compose.ui.tooling)
+    implementation(libs.androidx.compose.ui.tooling.preview)
+    implementation(libs.androidx.paging.compose)
+    implementation(libs.androidx.viewmodel.compose)
+    implementation(libs.kotlinx.coroutines)
     implementation(libs.kotlinx.datetime)
 
     testImplementation(kotlin("test"))
@@ -60,11 +64,11 @@ tasks.withType<GenerateModuleMetadata> {
 publishing {
     publications {
         register<MavenPublication>("release") {
-            artifactId = "logcat-database"
+            artifactId = "logcat-export-ui"
 
             pom {
-                name = "logcat-database"
-                description = "Library to store Logcat events in Room database."
+                name = "logcat-export-ui"
+                description = "Material3 Compose UI for viewing and exporting Logcat events."
                 url = "https://github.com/brudaswen/android-logcat/"
 
                 licenses {
@@ -82,7 +86,8 @@ publishing {
                 }
                 scm {
                     connection = "scm:git:git://github.com/brudaswen/android-logcat.git"
-                    developerConnection = "scm:git:ssh://git@github.com:brudaswen/android-logcat.git"
+                    developerConnection =
+                        "scm:git:ssh://git@github.com:brudaswen/android-logcat.git"
                     url = "https://github.com/brudaswen/android-logcat/"
                 }
                 issueManagement {

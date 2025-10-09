@@ -10,18 +10,33 @@ Library to easily parse *Android Logcat*, store it in a database and export to `
 
 ## Gradle Dependencies
 
+```toml
+[versions]
+logcat = "3.1.0"
+
+[libraries]
+logcat-core = { group = "de.brudaswen.android.logcat", name = "logcat-core", version.ref = "logcat" }
+logcat-database = { group = "de.brudaswen.android.logcat", name = "logcat-database", version.ref = "logcat" }
+logcat-export = { group = "de.brudaswen.android.logcat", name = "logcat-export", version.ref = "logcat" }
+logcat-export-csv = { group = "de.brudaswen.android.logcat", name = "logcat-export-csv", version.ref = "logcat" }
+logcat-ui = { group = "de.brudaswen.android.logcat", name = "logcat-ui", version.ref = "logcat" }
+```
+
 ```kotlin
 // Plain Logcat Core (parser)
-implementation("de.brudaswen.android.logcat:logcat-core:1.0.1")
+implementation(libs.logcat.core)
 
 // Android Logcat Database (Room database and import service)
-implementation("de.brudaswen.android.logcat:logcat-database:1.0.1")
+implementation(libs.logcat.database)
 
 // Android Logcat Export (export database to txt file)
-implementation("de.brudaswen.android.logcat:logcat-export:1.0.1")
+implementation(libs.logcat.export)
 
 // Android Logcat CSV Export (csv export extension)
-implementation("de.brudaswen.android.logcat:logcat-export:1.0.1")
+implementation(libs.logcat.export.csv)
+
+// Android Material3 Compose Logcat UI
+implementation(libs.logcat.ui)
 ```
 
 ## Usage
@@ -88,6 +103,38 @@ launch {
         dao = logcat.exportDao,
         serializer = LogcatCsvSerializer,
     ).export(output)
+}
+```
+
+#### Material3 Compose UI
+
+A simple Material3 Compose UI can be added that lists all Logcat items and allows to export them.
+
+The `LogcatListScreen` shows a list of all Logcat items.
+
+```kotlin
+LogcatListScreen(
+    onItemClick = { navigator.navigate(LogcatDetailsScreen(it.uuid)) },
+)
+```
+
+The `LogcatDetailsScreen` shows the details of a single Logcat item including the full log message.
+
+```kotlin
+LogcatDetailsScreen(
+    uuid = uuid,
+    onUpClick = navigator::navigateUp,
+)
+```
+
+Make sure that the the `androidx.compose.material3.MaterialTheme` is used, as well as the
+`LogcatTheme`:
+
+```kotlin
+MaterialTheme {
+    LogcatTheme {
+        Logcat*Screen()
+    }
 }
 ```
 

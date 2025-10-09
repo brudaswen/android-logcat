@@ -31,6 +31,12 @@ public interface LogcatSearchDao {
     public fun countAll(): Flow<Int>
 
     /**
+     * Get [LogcatItems][LogcatItemDto] by its [uuid][LogcatItemDto.uuid].
+     */
+    @Query("SELECT * FROM logcatItem WHERE uuid = :uuid")
+    public fun getById(uuid: String): Flow<LogcatItemDto>
+
+    /**
      * Search [LogcatItems][LogcatItemDto] as [PagingSource].
      *
      * @param query The search text that should appear in [LogcatItemDto.tag] or [LogcatItemDto.message].

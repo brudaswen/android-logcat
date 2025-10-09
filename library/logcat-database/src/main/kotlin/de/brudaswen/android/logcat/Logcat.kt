@@ -15,6 +15,8 @@ public class Logcat(
     context: Context,
     databaseName: String = "logcat.db",
 ) {
+    public val context: Context = context.applicationContext
+
     public val database: LogcatDatabase by lazy {
         Room.databaseBuilder(
             context = context,

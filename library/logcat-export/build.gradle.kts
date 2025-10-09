@@ -38,6 +38,7 @@ kotlin {
 dependencies {
     api(project(":library:logcat-database"))
 
+    implementation(libs.androidx.core.ktx)
     implementation(libs.kotlinx.coroutines)
     implementation(libs.kotlinx.datetime)
 

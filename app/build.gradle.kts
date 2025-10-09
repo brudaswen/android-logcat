@@ -1,5 +1,6 @@
 plugins {
     kotlin("android")
+    kotlin("plugin.serialization")
     alias(libs.plugins.android.application)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.ktlint)
@@ -32,6 +33,8 @@ android {
 
     kotlin {
         jvmToolchain(jdkVersion = 9)
+
+        explicitApi()
     }
 
     buildFeatures {
@@ -42,20 +45,10 @@ android {
 dependencies {
     implementation(platform(libs.androidx.compose.bom))
 
-    implementation(project(":library:logcat-export"))
-    implementation(project(":library:logcat-export-csv"))
+    implementation(project(":library:logcat-ui"))
 
-    implementation(libs.androidx.activity.compose)
-    implementation(libs.androidx.appcompat)
     implementation(libs.androidx.compose.material3)
-    implementation(libs.androidx.compose.ui.tooling)
-    implementation(libs.androidx.compose.ui.tooling.preview)
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.paging.compose)
-    implementation(libs.androidx.viewmodel.compose)
+    implementation(libs.androidx.navigation.compose)
 
     testImplementation(libs.junit)
-
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
 }

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="logcat_list_title">Logcat</string>
+    <string name="logcat_list_item_tid_pid">tid: %s, pid: %s</string>
+    <string name="logcat_list_menu_share_txt_title">Share as text (TXT)</string>
+    <string name="logcat_list_menu_share_csv_title">Share as Comma Separated Values (CSV)</string>
+    <string name="logcat_details_tid">tid: %s</string>
+    <string name="logcat_details_pid">pid: %s</string>
+</resources>
