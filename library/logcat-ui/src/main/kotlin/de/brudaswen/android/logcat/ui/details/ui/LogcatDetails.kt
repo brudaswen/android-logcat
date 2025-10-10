@@ -87,7 +87,7 @@ internal fun LogcatDetails(
                         .padding(16.dp),
                 ) {
                     Row(
-                        verticalAlignment = Alignment.CenterVertically
+                        verticalAlignment = Alignment.CenterVertically,
                     ) {
                         item.icon()?.let { icon ->
                             Icon(

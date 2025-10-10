@@ -35,7 +35,7 @@ internal fun LogcatScaffold(
                 navigationIcon = {
                     if (onUpClick != null) {
                         IconButton(
-                            onClick = onUpClick
+                            onClick = onUpClick,
                         ) {
                             Icon(
                                 imageVector = Icons.AutoMirrored.Rounded.ArrowBackIos,

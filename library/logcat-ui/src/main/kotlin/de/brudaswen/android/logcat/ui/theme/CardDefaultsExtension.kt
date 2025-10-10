@@ -7,14 +7,14 @@ import de.brudaswen.android.logcat.ui.util.cached
 
 @Composable
 public fun CardDefaults.fatalColors(): CardColors = cached(
-    property = LogcatTheme.extendedColorScheme::fatalCardColorsCached
+    property = LogcatTheme.extendedColorScheme::fatalCardColorsCached,
 ) {
     cardColors(LogcatTheme.extendedColorScheme.fatal)
 }
 
 @Composable
 public fun CardDefaults.errorColors(): CardColors = cached(
-    property = LogcatTheme.extendedColorScheme::errorCardColorsCached
+    property = LogcatTheme.extendedColorScheme::errorCardColorsCached,
 ) {
     cardColors(
         containerColor = LogcatTheme.colorScheme.errorContainer,
@@ -24,28 +24,28 @@ public fun CardDefaults.errorColors(): CardColors = cached(
 
 @Composable
 public fun CardDefaults.warningColors(): CardColors = cached(
-    property = LogcatTheme.extendedColorScheme::warningCardColorsCached
+    property = LogcatTheme.extendedColorScheme::warningCardColorsCached,
 ) {
     cardColors(LogcatTheme.extendedColorScheme.warning)
 }
 
 @Composable
 public fun CardDefaults.infoColors(): CardColors = cached(
-    property = LogcatTheme.extendedColorScheme::infoCardColorsCached
+    property = LogcatTheme.extendedColorScheme::infoCardColorsCached,
 ) {
     cardColors(LogcatTheme.extendedColorScheme.info)
 }
 
 @Composable
 public fun CardDefaults.debugColors(): CardColors = cached(
-    property = LogcatTheme.extendedColorScheme::debugCardColorsCached
+    property = LogcatTheme.extendedColorScheme::debugCardColorsCached,
 ) {
     cardColors(LogcatTheme.extendedColorScheme.debug)
 }
 
 @Composable
 public fun CardDefaults.verboseColors(): CardColors = cached(
-    property = LogcatTheme.extendedColorScheme::verboseCardColorsCached
+    property = LogcatTheme.extendedColorScheme::verboseCardColorsCached,
 ) {
     cardColors(LogcatTheme.extendedColorScheme.verbose)
 }

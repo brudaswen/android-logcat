@@ -21,7 +21,7 @@ internal class LogcatListViewModel(
         config = PagingConfig(
             pageSize = 50,
         ),
-        pagingSourceFactory = logcat.searchDao::getAllPaged
+        pagingSourceFactory = logcat.searchDao::getAllPaged,
     ).flow.cachedIn(viewModelScope)
 
     fun onExportAsTxtClick() {

@@ -7,14 +7,14 @@ import de.brudaswen.android.logcat.ui.util.cached
 
 @Composable
 public fun ListItemDefaults.fatalColors(): ListItemColors = cached(
-    property = LogcatTheme.extendedColorScheme::fatalListItemColorsCached
+    property = LogcatTheme.extendedColorScheme::fatalListItemColorsCached,
 ) {
     colors(LogcatTheme.extendedColorScheme.fatal)
 }
 
 @Composable
 public fun ListItemDefaults.errorColors(): ListItemColors = cached(
-    property = LogcatTheme.extendedColorScheme::errorListItemColorsCached
+    property = LogcatTheme.extendedColorScheme::errorListItemColorsCached,
 ) {
     colors(
         containerColor = LogcatTheme.colorScheme.errorContainer,
@@ -25,28 +25,28 @@ public fun ListItemDefaults.errorColors(): ListItemColors = cached(
 
 @Composable
 public fun ListItemDefaults.warningColors(): ListItemColors = cached(
-    property = LogcatTheme.extendedColorScheme::warningListItemColorsCached
+    property = LogcatTheme.extendedColorScheme::warningListItemColorsCached,
 ) {
     colors(LogcatTheme.extendedColorScheme.warning)
 }
 
 @Composable
 public fun ListItemDefaults.infoColors(): ListItemColors = cached(
-    property = LogcatTheme.extendedColorScheme::infoListItemColorsCached
+    property = LogcatTheme.extendedColorScheme::infoListItemColorsCached,
 ) {
     colors(LogcatTheme.extendedColorScheme.info)
 }
 
 @Composable
 public fun ListItemDefaults.debugColors(): ListItemColors = cached(
-    property = LogcatTheme.extendedColorScheme::debugListItemColorsCached
+    property = LogcatTheme.extendedColorScheme::debugListItemColorsCached,
 ) {
     colors(LogcatTheme.extendedColorScheme.debug)
 }
 
 @Composable
 public fun ListItemDefaults.verboseColors(): ListItemColors = cached(
-    property = LogcatTheme.extendedColorScheme::verboseListItemColorsCached
+    property = LogcatTheme.extendedColorScheme::verboseListItemColorsCached,
 ) {
     colors(LogcatTheme.extendedColorScheme.verbose)
 }

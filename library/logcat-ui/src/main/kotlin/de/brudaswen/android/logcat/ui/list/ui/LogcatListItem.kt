@@ -110,7 +110,7 @@ internal fun LogcatListItem(
                         text = stringResource(
                             R.string.logcat_list_item_tid_pid,
                             item.tid,
-                            item.pid
+                            item.pid,
                         ),
                         style = LogcatTheme.typography.labelMedium,
                     )
@@ -122,7 +122,7 @@ internal fun LogcatListItem(
         HorizontalDivider(
             modifier = Modifier
                 .background(colors.containerColor)
-                .padding(horizontal = 16.dp)
+                .padding(horizontal = 16.dp),
         )
     }
 }

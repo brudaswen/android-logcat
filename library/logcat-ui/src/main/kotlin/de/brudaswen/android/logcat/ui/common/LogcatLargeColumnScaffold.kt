@@ -55,7 +55,7 @@ internal fun LogcatLargeColumnScaffold(
                 navigationIcon = {
                     if (onUpClick != null) {
                         IconButton(
-                            onClick = onUpClick
+                            onClick = onUpClick,
                         ) {
                             Icon(
                                 imageVector = Icons.AutoMirrored.Rounded.ArrowBackIos,
@@ -74,7 +74,7 @@ internal fun LogcatLargeColumnScaffold(
                     .fillMaxSize()
                     .verticalScroll(rememberScrollState())
                     .padding(contentPadding),
-                content = content
+                content = content,
             )
         },
     )

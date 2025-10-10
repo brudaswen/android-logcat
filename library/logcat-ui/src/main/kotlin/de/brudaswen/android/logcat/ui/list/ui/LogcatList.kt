@@ -101,7 +101,9 @@ internal fun LogcatList(
 
 @Composable
 private fun MenuItem(
-    text: String, icon: ImageVector, onClick: () -> Unit,
+    text: String,
+    icon: ImageVector,
+    onClick: () -> Unit,
 ) {
     ListItem(
         modifier = Modifier.clickable(

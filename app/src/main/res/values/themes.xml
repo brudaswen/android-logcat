@@ -1,4 +1,9 @@
 <resources>
 
-    <style name="Theme.Androidlogcat" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.Logcat.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/ic_launcher_background</item>
+        <item name="postSplashScreenTheme">@style/Theme.Logcat</item>
+    </style>
+
+    <style name="Theme.Logcat" parent="android:Theme.Material.Light.NoActionBar" />
 </resources>
