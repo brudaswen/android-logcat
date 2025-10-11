@@ -41,6 +41,7 @@ import kotlinx.datetime.format
 import kotlinx.datetime.format.DateTimeComponents
 import kotlinx.datetime.format.char
 import kotlinx.datetime.toInstant
+import kotlinx.datetime.toLocalDateTime
 
 @Composable
 internal fun LogcatListItem(
@@ -84,15 +85,17 @@ internal fun LogcatListItem(
                 )
             },
             trailingContent = {
+                val dateTime = item.date.toLocalDateTime(TimeZone.currentSystemDefault())
+
                 Column(
                     horizontalAlignment = Alignment.End,
                 ) {
                     Text(
-                        text = item.date.format(timeFormat),
+                        text = dateTime.format(timeFormat),
                         style = LogcatTheme.typography.labelSmall,
                     )
                     Text(
-                        text = item.date.format(dateFormat),
+                        text = dateTime.format(dateFormat),
                         style = LogcatTheme.typography.labelSmall,
                     )
                 }
@@ -128,14 +131,16 @@ internal fun LogcatListItem(
 }
 
 @Composable
-internal fun LogcatItemDto.icon(): ImageVector? = when (level) {
+internal fun LogcatItemDto.icon(): ImageVector? = level?.icon()
+
+@Composable
+internal fun LogcatLevel.icon(): ImageVector = when (this) {
     LogcatLevel.Verbose -> Icons.AutoMirrored.Outlined.HelpOutline
     LogcatLevel.Debug -> Icons.Outlined.BugReport
     LogcatLevel.Info -> Icons.Outlined.Info
     LogcatLevel.Warning -> Icons.Outlined.WarningAmber
     LogcatLevel.Error -> Icons.Outlined.ErrorOutline
     LogcatLevel.Fatal -> Icons.Outlined.Error
-    null -> null
 }
 
 internal val dateTimeFormat = DateTimeComponents.Format {
@@ -154,7 +159,7 @@ internal val dateTimeFormat = DateTimeComponents.Format {
     secondFraction(fixedLength = 3)
 }
 
-internal val dateFormat = DateTimeComponents.Format {
+internal val dateFormat = LocalDateTime.Format {
     day()
     char('.')
     monthNumber()
@@ -162,7 +167,7 @@ internal val dateFormat = DateTimeComponents.Format {
     year()
 }
 
-internal val timeFormat = DateTimeComponents.Format {
+internal val timeFormat = LocalDateTime.Format {
     hour()
     char(':')
     minute()
