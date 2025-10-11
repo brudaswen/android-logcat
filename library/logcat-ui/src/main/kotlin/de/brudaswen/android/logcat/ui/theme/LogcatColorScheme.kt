@@ -2,6 +2,7 @@ package de.brudaswen.android.logcat.ui.theme
 
 import androidx.compose.material3.CardColors
 import androidx.compose.material3.ListItemColors
+import androidx.compose.material3.SelectableChipColors
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
@@ -28,6 +29,13 @@ public data class LogcatColorScheme(
     internal var infoCardColorsCached: CardColors? = null
     internal var debugCardColorsCached: CardColors? = null
     internal var verboseCardColorsCached: CardColors? = null
+
+    internal var fatalFilterChipColorsCached: SelectableChipColors? = null
+    internal var errorFilterChipColorsCached: SelectableChipColors? = null
+    internal var warningFilterChipColorsCached: SelectableChipColors? = null
+    internal var infoFilterChipColorsCached: SelectableChipColors? = null
+    internal var debugFilterChipColorsCached: SelectableChipColors? = null
+    internal var verboseFilterChipColorsCached: SelectableChipColors? = null
 }
 
 @Immutable

@@ -1,8 +1,10 @@
-package de.brudaswen.android.logcat.ui.theme
+package de.brudaswen.android.logcat.ui.theme.extension
 
 import androidx.compose.material3.CardColors
 import androidx.compose.material3.CardDefaults
 import androidx.compose.runtime.Composable
+import de.brudaswen.android.logcat.ui.theme.ColorFamily
+import de.brudaswen.android.logcat.ui.theme.LogcatTheme
 import de.brudaswen.android.logcat.ui.util.cached
 
 @Composable
