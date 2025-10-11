@@ -1,7 +1,8 @@
 plugins {
-    alias(libs.plugins.android.library)
     kotlin("android")
     kotlin("plugin.serialization")
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.ktlint)
     `maven-publish`
     signing
 }

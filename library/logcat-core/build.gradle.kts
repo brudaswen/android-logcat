@@ -1,6 +1,7 @@
 plugins {
     kotlin("jvm")
     alias(libs.plugins.dokka.javadoc)
+    alias(libs.plugins.ktlint)
     `maven-publish`
     signing
     jacoco

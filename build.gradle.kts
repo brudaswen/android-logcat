@@ -5,8 +5,9 @@ import kotlin.time.toJavaDuration
 plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.android.library) apply false
-    kotlin("android") version(libs.versions.kotlin) apply false
-    kotlin("plugin.serialization") version(libs.versions.kotlin) apply false
+    kotlin("android") version libs.versions.kotlin apply false
+    kotlin("plugin.serialization") version libs.versions.kotlin apply false
+    alias(libs.plugins.ktlint)
     alias(libs.plugins.nexus.publish)
     alias(libs.plugins.researchgate.release)
     alias(libs.plugins.devtools.ksp) apply false

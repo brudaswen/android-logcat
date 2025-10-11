@@ -8,7 +8,7 @@ internal fun main() = runBlocking {
     val process = ProcessBuilder("adb", "logcat", "-B").start()
 
     LogcatBinaryParser(
-        input = BufferedInputStream(process.inputStream)
+        input = BufferedInputStream(process.inputStream),
     ).use { parser ->
         while (true) {
             val item = parser.parseItem()

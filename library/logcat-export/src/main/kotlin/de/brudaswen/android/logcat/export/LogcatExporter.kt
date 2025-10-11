@@ -1,7 +1,7 @@
 package de.brudaswen.android.logcat.export
 
-import de.brudaswen.android.logcat.database.LogcatItemDto
 import de.brudaswen.android.logcat.database.LogcatExportDao
+import de.brudaswen.android.logcat.database.LogcatItemDto
 import de.brudaswen.android.logcat.export.txt.LogcatTxtSerializer
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.invoke

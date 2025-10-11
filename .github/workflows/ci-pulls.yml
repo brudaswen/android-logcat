@@ -17,5 +17,8 @@ jobs:
         distribution: 'zulu'
         java-version: 17
 
+    - name: Ktlint Check
+      run: ./gradlew ktlintCheck
+
     - name: Build with Gradle
       run: ./gradlew build
