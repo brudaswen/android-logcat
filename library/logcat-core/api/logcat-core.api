@@ -1,0 +1,39 @@
+public final class de/brudaswen/android/logcat/core/cmd/ShellCommand {
+	public fun <init> (Ljava/util/List;)V
+	public final fun execute (Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun execute$default (Lde/brudaswen/android/logcat/core/cmd/ShellCommand;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public abstract interface class de/brudaswen/android/logcat/core/data/LogcatItem {
+	public abstract fun getDate ()Lkotlin/time/Instant;
+	public abstract fun getLevel ()Lde/brudaswen/android/logcat/core/data/LogcatLevel;
+	public abstract fun getMessage ()Ljava/lang/String;
+	public abstract fun getPid ()I
+	public abstract fun getTag ()Ljava/lang/String;
+	public abstract fun getTid ()I
+}
+
+public final class de/brudaswen/android/logcat/core/data/LogcatItemKt {
+	public static final fun LogcatItem (Lkotlin/time/Instant;IILde/brudaswen/android/logcat/core/data/LogcatLevel;Ljava/lang/String;Ljava/lang/String;)Lde/brudaswen/android/logcat/core/data/LogcatItem;
+	public static final fun getUuid (Lde/brudaswen/android/logcat/core/data/LogcatItem;)Lkotlin/uuid/Uuid;
+}
+
+public final class de/brudaswen/android/logcat/core/data/LogcatLevel : java/lang/Enum {
+	public static final field Debug Lde/brudaswen/android/logcat/core/data/LogcatLevel;
+	public static final field Error Lde/brudaswen/android/logcat/core/data/LogcatLevel;
+	public static final field Fatal Lde/brudaswen/android/logcat/core/data/LogcatLevel;
+	public static final field Info Lde/brudaswen/android/logcat/core/data/LogcatLevel;
+	public static final field Verbose Lde/brudaswen/android/logcat/core/data/LogcatLevel;
+	public static final field Warning Lde/brudaswen/android/logcat/core/data/LogcatLevel;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getIdentifier ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lde/brudaswen/android/logcat/core/data/LogcatLevel;
+	public static fun values ()[Lde/brudaswen/android/logcat/core/data/LogcatLevel;
+}
+
+public final class de/brudaswen/android/logcat/core/parser/LogcatBinaryParser : java/io/Closeable {
+	public fun <init> (Ljava/io/InputStream;)V
+	public fun close ()V
+	public final fun parseItem (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
