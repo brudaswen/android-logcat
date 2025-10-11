@@ -1,36 +1,25 @@
 package de.brudaswen.android.logcat.ui.details.ui
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.ContentCopy
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily.Companion.Monospace
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import de.brudaswen.android.logcat.core.data.LogcatLevel
 import de.brudaswen.android.logcat.database.LogcatItemDto
-import de.brudaswen.android.logcat.ui.R
 import de.brudaswen.android.logcat.ui.common.LogcatLargeColumnScaffold
+import de.brudaswen.android.logcat.ui.extension.runIf
 import de.brudaswen.android.logcat.ui.list.ui.dateTimeFormat
-import de.brudaswen.android.logcat.ui.list.ui.icon
 import de.brudaswen.android.logcat.ui.theme.LogcatPreviewTheme
 import de.brudaswen.android.logcat.ui.theme.LogcatTheme
-import de.brudaswen.android.logcat.ui.theme.debugColors
-import de.brudaswen.android.logcat.ui.theme.errorColors
-import de.brudaswen.android.logcat.ui.theme.fatalColors
-import de.brudaswen.android.logcat.ui.theme.infoColors
-import de.brudaswen.android.logcat.ui.theme.verboseColors
-import de.brudaswen.android.logcat.ui.theme.warningColors
 import kotlinx.datetime.LocalDateTime
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.format
@@ -42,79 +31,35 @@ internal fun LogcatDetails(
     onCopyToClipboardClick: () -> Unit,
     onUpClick: () -> Unit,
 ) {
+    var softWrap by remember { mutableStateOf(false) }
+
     LogcatLargeColumnScaffold(
         title = item?.tag,
         subtitle = item?.date?.format(dateTimeFormat),
         actions = {
-            IconButton(
-                onClick = onCopyToClipboardClick,
-            ) {
-                Icon(
-                    imageVector = Icons.Outlined.ContentCopy,
-                    contentDescription = null,
-                )
-            }
+            LogcatDetailsMenu(
+                softWrap = softWrap,
+                onSoftWrapClick = { softWrap = !softWrap },
+                onCopyToClipboardClick = onCopyToClipboardClick,
+            )
         },
         onUpClick = onUpClick,
     ) {
         if (item != null) {
-            Text(
-                modifier = Modifier.padding(
-                    horizontal = 16.dp,
-                    vertical = 16.dp,
-                ),
-                text = item.message,
-                style = LogcatTheme.typography.bodyMedium,
+            LogcatDetailsCard(
+                item = item,
             )
 
-            Card(
-                modifier = Modifier.padding(
-                    horizontal = 16.dp,
-                ),
-                colors = when (item.level) {
-                    LogcatLevel.Fatal -> CardDefaults.fatalColors()
-                    LogcatLevel.Error -> CardDefaults.errorColors()
-                    LogcatLevel.Warning -> CardDefaults.warningColors()
-                    LogcatLevel.Info -> CardDefaults.infoColors()
-                    LogcatLevel.Debug -> CardDefaults.debugColors()
-                    LogcatLevel.Verbose -> CardDefaults.verboseColors()
-                    null -> CardDefaults.cardColors()
-                },
-            ) {
-                Column(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(16.dp),
-                ) {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                    ) {
-                        item.icon()?.let { icon ->
-                            Icon(
-                                modifier = Modifier.padding(end = 8.dp),
-                                imageVector = icon,
-                                contentDescription = null,
-                            )
-                        }
-
-                        Text(
-                            text = item.level.toString(),
-                            style = LogcatTheme.typography.bodyLarge,
-                        )
+            Text(
+                modifier = Modifier
+                    .runIf(softWrap) {
+                        horizontalScroll(rememberScrollState())
                     }
-
-                    Text(
-                        modifier = Modifier.padding(top = 8.dp),
-                        text = stringResource(R.string.logcat_details_tid, item.tid),
-                        style = LogcatTheme.typography.labelLarge,
-                    )
-
-                    Text(
-                        text = stringResource(R.string.logcat_details_pid, item.pid),
-                        style = LogcatTheme.typography.labelLarge,
-                    )
-                }
-            }
+                    .padding(horizontal = 16.dp)
+                    .padding(top = 24.dp),
+                text = item.message,
+                style = LogcatTheme.typography.bodySmall.copy(fontFamily = Monospace),
+            )
         }
     }
 }
