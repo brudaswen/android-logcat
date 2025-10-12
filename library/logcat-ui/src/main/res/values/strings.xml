@@ -4,6 +4,11 @@
     <string name="logcat_list_item_tid_pid">tid: %s, pid: %s</string>
     <string name="logcat_list_menu_share_txt_title">Share as text (TXT)</string>
     <string name="logcat_list_menu_share_csv_title">Share as Comma Separated Values (CSV)</string>
-    <string name="logcat_details_tid">tid: %s</string>
-    <string name="logcat_details_pid">pid: %s</string>
+
+    <string name="logcat_details_tid">Thread ID</string>
+    <string name="logcat_details_pid">Process ID</string>
+    <string name="logcat_details_message">Message</string>
+    <string name="logcat_message_soft_wrap">Soft Wrap</string>
+    <string name="logcat_message_overflow">Overflow</string>
+    <string name="logcat_copy">Copy</string>
 </resources>

@@ -19,6 +19,7 @@ import androidx.compose.material3.TopAppBarDefaults.exitUntilCollapsedScrollBeha
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.unit.dp
 import de.brudaswen.android.logcat.ui.theme.LogcatTheme
 
 @Composable
@@ -73,7 +74,8 @@ internal fun LogcatLargeColumnScaffold(
                 modifier = Modifier
                     .fillMaxSize()
                     .verticalScroll(rememberScrollState())
-                    .padding(contentPadding),
+                    .padding(contentPadding)
+                    .padding(vertical = 16.dp),
                 content = content,
             )
         },
