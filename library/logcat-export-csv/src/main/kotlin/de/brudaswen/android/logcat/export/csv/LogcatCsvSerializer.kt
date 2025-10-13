@@ -9,7 +9,6 @@ import kotlinx.serialization.csv.Csv
 import kotlinx.serialization.csv.CsvRecordWriter
 import kotlinx.serialization.csv.recordWriter
 import java.io.OutputStream
-import java.io.Writer
 import kotlin.time.Instant
 
 /**
@@ -21,7 +20,7 @@ public class LogcatCsvSerializer private constructor(
 
     public constructor(
         csv: Csv = Csv,
-        output: Writer,
+        output: Appendable,
     ) : this(
         writer = csv.recordWriter(CsvLogcatItem.serializer(), output),
     )
@@ -55,7 +54,9 @@ public class LogcatCsvSerializer private constructor(
          *
          * @param csv The [Csv] format to use during export.
          */
-        public fun with(csv: Csv): LogcatSerializer.Factory = LogcatSerializer.Factory {
+        public fun with(
+            csv: Csv,
+        ): LogcatSerializer.Factory = LogcatSerializer.Factory {
             LogcatCsvSerializer(
                 csv = csv,
                 output = it.writer(),

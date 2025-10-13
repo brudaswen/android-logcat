@@ -10,7 +10,6 @@ import de.brudaswen.android.logcat.Logcat
 import de.brudaswen.android.logcat.export.txt.LogcatTxtSerializer
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
-import java.io.StringWriter
 
 internal class LogcatDetailsViewModel(
     context: Context,
@@ -27,9 +26,9 @@ internal class LogcatDetailsViewModel(
     fun onCopyToClipboardClick() {
         val item = item.value ?: return
 
-        val content = StringWriter().also {
-            LogcatTxtSerializer(it).export(listOf(item))
-        }.toString()
+        val content = buildString {
+            LogcatTxtSerializer(this).export(listOf(item))
+        }
 
         clipboard?.setPrimaryClip(ClipData.newPlainText("Logcat", content))
     }
