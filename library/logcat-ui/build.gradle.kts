@@ -97,6 +97,15 @@ publishing {
                 }
             }
 
+            versionMapping {
+                usage("java-api") {
+                    fromResolutionOf("releaseCompileClasspath")
+                }
+                usage("java-runtime") {
+                    fromResolutionOf("releaseRuntimeClasspath")
+                }
+            }
+
             afterEvaluate {
                 from(components["release"])
             }
