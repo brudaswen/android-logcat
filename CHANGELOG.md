@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2025-10-15
+
+### Added
+
+- Add `Material3 Compose UI` module.
+
+### Changed
+
+- Update project dependencies and publishing.
+
 ## [1.0.1] - 2025-05-15
 
 ### Fixed
