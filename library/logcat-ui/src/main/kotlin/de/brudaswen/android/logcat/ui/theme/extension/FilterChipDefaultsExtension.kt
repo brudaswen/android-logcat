@@ -4,9 +4,30 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.SelectableChipColors
 import androidx.compose.runtime.Composable
+import de.brudaswen.android.logcat.core.data.LogcatLevel
 import de.brudaswen.android.logcat.ui.theme.ColorFamily
 import de.brudaswen.android.logcat.ui.theme.LogcatTheme
 import de.brudaswen.android.logcat.ui.util.cached
+
+@Composable
+public fun LogcatLevel.filterChipColors(): SelectableChipColors = when (this) {
+    LogcatLevel.Fatal -> FilterChipDefaults.fatalColors()
+    LogcatLevel.Error -> FilterChipDefaults.errorColors()
+    LogcatLevel.Warning -> FilterChipDefaults.warningColors()
+    LogcatLevel.Info -> FilterChipDefaults.infoColors()
+    LogcatLevel.Debug -> FilterChipDefaults.debugColors()
+    LogcatLevel.Verbose -> FilterChipDefaults.verboseColors()
+}
+
+@Composable
+public fun LogcatLevel.filterChipBorder(selected: Boolean): BorderStroke = when (this) {
+    LogcatLevel.Fatal -> FilterChipDefaults.fatalBorder(selected)
+    LogcatLevel.Error -> FilterChipDefaults.errorBorder(selected)
+    LogcatLevel.Warning -> FilterChipDefaults.warningBorder(selected)
+    LogcatLevel.Info -> FilterChipDefaults.infoBorder(selected)
+    LogcatLevel.Debug -> FilterChipDefaults.debugBorder(selected)
+    LogcatLevel.Verbose -> FilterChipDefaults.verboseBorder(selected)
+}
 
 @Composable
 public fun FilterChipDefaults.fatalColors(): SelectableChipColors = cached(

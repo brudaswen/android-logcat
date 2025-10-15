@@ -36,6 +36,7 @@ kotlin {
         optIn.add("androidx.compose.material3.ExperimentalMaterial3Api")
         optIn.add("kotlin.time.ExperimentalTime")
         optIn.add("kotlin.uuid.ExperimentalUuidApi")
+        optIn.add("kotlinx.coroutines.ExperimentalCoroutinesApi")
     }
 }
 

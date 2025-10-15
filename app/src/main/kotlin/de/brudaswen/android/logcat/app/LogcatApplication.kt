@@ -9,7 +9,7 @@ internal class LogcatApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        val logcat = Logcat(applicationContext)
+        val logcat = Logcat(this)
         MainScope().launch {
             logcat.service.start()
         }

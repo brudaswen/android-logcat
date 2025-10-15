@@ -1,14 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="logcat_list_title">Logcat</string>
+    <string name="logcat_copy">Copy</string>
+    <string name="logcat_reset_filters">Reset Filters</string>
+
     <string name="logcat_list_item_tid_pid">tid: %s, pid: %s</string>
     <string name="logcat_list_menu_share_txt_title">Share as text (TXT)</string>
     <string name="logcat_list_menu_share_csv_title">Share as Comma Separated Values (CSV)</string>
+    <string name="logcat_list_menu_reset_database">Reset Database</string>
+
+    <string name="logcat_list_searchbar_placeholder">%s (%s)</string>
+    <plurals name="logcat_list_filter_count">
+        <item quantity="one">%1$d filter</item>
+        <item quantity="other">%1$d filters</item>
+    </plurals>
+    <plurals name="logcat_list_item_count">
+        <item quantity="one">%1$,d entry</item>
+        <item quantity="other">%1$,d entries</item>
+    </plurals>
+
+    <string name="logcat_list_empty_title">No log entries found</string>
+    <string name="logcat_list_empty_text">Check your filters and try again</string>
+
+    <string name="logcat_list_filter_explanation">Type \'tag\', \'message\' or \'all\' to filter for specific log entries.</string>
+    <string name="logcat_list_search_filters_title">All</string>
+    <string name="logcat_list_tag_filters_title">Tags</string>
+    <string name="logcat_list_message_filters_title">Messages</string>
+    <string name="logcat_list_level_filters_title">Levels</string>
+
+    <string name="logcat_list_item_menu_include_tag_title">Include tag</string>
+    <string name="logcat_list_item_menu_exclude_tag_title">Exclude tag</string>
+    <string name="logcat_list_item_menu_include_message_title">Include message</string>
+    <string name="logcat_list_item_menu_exclude_message_title">Exclude message</string>
+
+    <string name="logcat_filter_type_search_description">Log tag, message, tid or pid contains string</string>
+    <string name="logcat_filter_type_include_tag_contains_description">Log tag contains string</string>
+    <string name="logcat_filter_type_include_tag_exactly_description">Log tag is exactly string</string>
+    <string name="logcat_filter_type_exclude_tag_contains_description">Log tag does not contain string</string>
+    <string name="logcat_filter_type_exclude_tag_exactly_description">Log tag is not exactly string</string>
+    <string name="logcat_filter_type_include_message_contains_description">Log message contains string</string>
+    <string name="logcat_filter_type_include_message_exactly_description">Log message is exactly string</string>
+    <string name="logcat_filter_type_exclude_message_contains_description">Log message does not contain string</string>
+    <string name="logcat_filter_type_exclude_message_exactly_description">Log message is not exactly string</string>
+
+    <string name="logcat_filter_search_description">Log tag, message, tid or pid contains \'%1$s\'</string>
+    <string name="logcat_filter_include_tag_contains_description">Log tag contains \'%1$s\'</string>
+    <string name="logcat_filter_include_tag_exactly_description">Log tag is exactly \'%1$s\'</string>
+    <string name="logcat_filter_exclude_tag_contains_description">Log tag does not contain \'%1$s\'</string>
+    <string name="logcat_filter_exclude_tag_exactly_description">Log tag is not exactly \'%1$s\'</string>
+    <string name="logcat_filter_include_message_contains_description">Log message contains \'%1$s\'</string>
+    <string name="logcat_filter_include_message_exactly_description">Log message is exactly \'%1$s\'</string>
+    <string name="logcat_filter_exclude_message_contains_description">Log message does not contain \'%1$s\'</string>
+    <string name="logcat_filter_exclude_message_exactly_description">Log message is not exactly \'%1$s\'</string>
 
     <string name="logcat_details_tid">Thread ID</string>
     <string name="logcat_details_pid">Process ID</string>
     <string name="logcat_details_message">Message</string>
     <string name="logcat_message_soft_wrap">Soft Wrap</string>
     <string name="logcat_message_overflow">Overflow</string>
-    <string name="logcat_copy">Copy</string>
 </resources>

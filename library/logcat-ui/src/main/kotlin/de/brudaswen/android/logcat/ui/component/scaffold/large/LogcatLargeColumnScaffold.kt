@@ -1,4 +1,4 @@
-package de.brudaswen.android.logcat.ui.common
+package de.brudaswen.android.logcat.ui.component.scaffold.large
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
@@ -19,7 +19,9 @@ import androidx.compose.material3.TopAppBarDefaults.exitUntilCollapsedScrollBeha
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import de.brudaswen.android.logcat.ui.theme.LogcatPreviewTheme
 import de.brudaswen.android.logcat.ui.theme.LogcatTheme
 
 @Composable
@@ -80,4 +82,19 @@ internal fun LogcatLargeColumnScaffold(
             )
         },
     )
+}
+
+@Preview
+@Composable
+internal fun LogcatLargeColumnScaffoldPreview() = LogcatPreviewTheme {
+    LogcatLargeColumnScaffold(
+        title = "Title",
+        subtitle = "Subtitle",
+        onUpClick = {},
+    ) {
+        Text(
+            modifier = Modifier.padding(horizontal = 16.dp),
+            text = "Content",
+        )
+    }
 }

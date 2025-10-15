@@ -3,9 +3,20 @@ package de.brudaswen.android.logcat.ui.theme.extension
 import androidx.compose.material3.CardColors
 import androidx.compose.material3.CardDefaults
 import androidx.compose.runtime.Composable
+import de.brudaswen.android.logcat.core.data.LogcatLevel
 import de.brudaswen.android.logcat.ui.theme.ColorFamily
 import de.brudaswen.android.logcat.ui.theme.LogcatTheme
 import de.brudaswen.android.logcat.ui.util.cached
+
+@Composable
+public fun LogcatLevel.cardColors(): CardColors = when (this) {
+    LogcatLevel.Fatal -> CardDefaults.fatalColors()
+    LogcatLevel.Error -> CardDefaults.errorColors()
+    LogcatLevel.Warning -> CardDefaults.warningColors()
+    LogcatLevel.Info -> CardDefaults.infoColors()
+    LogcatLevel.Debug -> CardDefaults.debugColors()
+    LogcatLevel.Verbose -> CardDefaults.verboseColors()
+}
 
 @Composable
 public fun CardDefaults.fatalColors(): CardColors = cached(

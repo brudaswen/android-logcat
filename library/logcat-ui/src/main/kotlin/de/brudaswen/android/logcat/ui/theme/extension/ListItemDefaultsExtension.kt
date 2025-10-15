@@ -3,9 +3,20 @@ package de.brudaswen.android.logcat.ui.theme.extension
 import androidx.compose.material3.ListItemColors
 import androidx.compose.material3.ListItemDefaults
 import androidx.compose.runtime.Composable
+import de.brudaswen.android.logcat.core.data.LogcatLevel
 import de.brudaswen.android.logcat.ui.theme.ColorFamily
 import de.brudaswen.android.logcat.ui.theme.LogcatTheme
 import de.brudaswen.android.logcat.ui.util.cached
+
+@Composable
+public fun LogcatLevel.listItemColors(): ListItemColors = when (this) {
+    LogcatLevel.Fatal -> ListItemDefaults.fatalColors()
+    LogcatLevel.Error -> ListItemDefaults.errorColors()
+    LogcatLevel.Warning -> ListItemDefaults.warningColors()
+    LogcatLevel.Info -> ListItemDefaults.infoColors()
+    LogcatLevel.Debug -> ListItemDefaults.debugColors()
+    LogcatLevel.Verbose -> ListItemDefaults.verboseColors()
+}
 
 @Composable
 public fun ListItemDefaults.fatalColors(): ListItemColors = cached(
@@ -18,11 +29,7 @@ public fun ListItemDefaults.fatalColors(): ListItemColors = cached(
 public fun ListItemDefaults.errorColors(): ListItemColors = cached(
     property = LogcatTheme.extendedColorScheme::errorListItemColorsCached,
 ) {
-    colors(
-        containerColor = LogcatTheme.colorScheme.errorContainer,
-        overlineColor = LogcatTheme.colorScheme.onErrorContainer,
-        leadingIconColor = LogcatTheme.colorScheme.onErrorContainer,
-    )
+    colors(LogcatTheme.extendedColorScheme.error)
 }
 
 @Composable
@@ -55,7 +62,5 @@ public fun ListItemDefaults.verboseColors(): ListItemColors = cached(
 
 @Composable
 private fun ListItemDefaults.colors(colors: ColorFamily): ListItemColors = colors(
-    containerColor = colors.colorContainer,
-    overlineColor = colors.onColorContainer,
-    leadingIconColor = colors.onColorContainer,
+    overlineColor = colors.color,
 )

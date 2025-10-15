@@ -11,7 +11,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import de.brudaswen.android.logcat.database.LogcatItemDto
-import de.brudaswen.android.logcat.ui.common.LogcatLargeColumnScaffold
+import de.brudaswen.android.logcat.ui.component.scaffold.large.LogcatLargeColumnScaffold
 import de.brudaswen.android.logcat.ui.extension.datetime.dateTimeFormat
 import de.brudaswen.android.logcat.ui.preview.LogcatItemDtoPreviewProvider
 import de.brudaswen.android.logcat.ui.theme.LogcatPreviewTheme
