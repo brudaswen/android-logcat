@@ -1,8 +1,8 @@
 plugins {
-    alias(libs.plugins.android.library)
     kotlin("android")
-    alias(libs.plugins.devtools.ksp)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.androidx.room)
+    alias(libs.plugins.devtools.ksp)
     `maven-publish`
     signing
 }
@@ -44,12 +44,11 @@ dependencies {
 
     api(project(":library:logcat-core"))
 
-    implementation(libs.kotlinx.datetime)
-
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
     api(libs.androidx.room.paging)
     implementation(libs.androidx.paging.runtime)
+    implementation(libs.kotlinx.datetime)
 
     testImplementation(kotlin("test"))
 }

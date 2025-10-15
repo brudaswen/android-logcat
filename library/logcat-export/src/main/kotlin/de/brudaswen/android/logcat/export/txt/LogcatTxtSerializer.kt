@@ -9,13 +9,12 @@ import kotlinx.datetime.format.DateTimeComponents.Companion.Format
 import kotlinx.datetime.format.DateTimeFormat
 import kotlinx.datetime.format.char
 import java.io.OutputStream
-import java.io.Writer
 
 /**
  * [LogcatSerializer] in `txt` format.
  */
 public class LogcatTxtSerializer(
-    private val writer: Writer,
+    private val writer: Appendable,
     private val format: (LogcatItem) -> String = {
         String.format(
             "%s %5.5s-%-5.5s [ %1.1s ] %-32s %s",
@@ -47,7 +46,9 @@ public class LogcatTxtSerializer(
         /**
          * Create [LogcatSerializer.Factory] with custom `txt` format.
          */
-        public fun with(format: (LogcatItem) -> String): LogcatSerializer.Factory = LogcatSerializer.Factory {
+        public fun with(
+            format: (LogcatItem) -> String,
+        ): LogcatSerializer.Factory = LogcatSerializer.Factory {
             LogcatTxtSerializer(
                 writer = it.writer(),
                 format = format,

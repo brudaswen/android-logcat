@@ -1,6 +1,8 @@
 plugins {
     kotlin("android")
+    kotlin("plugin.serialization")
     alias(libs.plugins.android.application)
+    alias(libs.plugins.compose.compiler)
     alias(libs.plugins.ktlint)
 }
 
@@ -22,25 +24,32 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro",
+            )
         }
     }
 
     kotlin {
         jvmToolchain(jdkVersion = 9)
+
+        explicitApi()
+    }
+
+    buildFeatures {
+        compose = true
     }
 }
 
 dependencies {
-    implementation(project(":library:logcat-export"))
-    implementation(project(":library:logcat-export-csv"))
+    implementation(platform(libs.androidx.compose.bom))
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
+    implementation(project(":library:logcat-ui"))
+
+    implementation(libs.androidx.core.splashscreen)
+    implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.navigation.compose)
 
     testImplementation(libs.junit)
-
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
 }

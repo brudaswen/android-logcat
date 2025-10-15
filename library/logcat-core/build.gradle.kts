@@ -25,7 +25,7 @@ kotlin {
 
 dependencies {
     implementation(libs.kotlinx.coroutines)
-    implementation(libs.kotlinx.datetime)
+    api(libs.kotlinx.datetime)
     implementation(libs.kotlinx.io.core)
 
     testImplementation(kotlin("test"))
