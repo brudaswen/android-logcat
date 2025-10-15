@@ -65,10 +65,10 @@ tasks.withType<GenerateModuleMetadata> {
 publishing {
     publications {
         register<MavenPublication>("release") {
-            artifactId = "logcat-export-ui"
+            artifactId = "logcat-ui"
 
             pom {
-                name = "logcat-export-ui"
+                name = "logcat-ui"
                 description = "Material3 Compose UI for viewing and exporting Logcat events."
                 url = "https://github.com/brudaswen/android-logcat/"
 

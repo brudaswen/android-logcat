@@ -5,4 +5,4 @@ ij_kotlin_indent_before_arrow_on_new_line = false
 
 ktlint_code_style = intellij_idea
 ktlint_standard_function-signature = disabled
-ktlint_function_naming_ignore_when_annotated_with=Composable
+ktlint_function_naming_ignore_when_annotated_with = Composable
